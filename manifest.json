@@ -1,0 +1,11 @@
+{
+  "manifest_version": 1,
+  "name": "Broadway Lottery",
+  "version": "1.0",
+  "description": "An easy way to sign up for your Broadway Lotteries.",
+  "browser_action": {
+    "default_icon": "browser_action.png",
+    "default_title": "Broadway Lotteries",
+    "popup": "popup.html"
+  }
+}
