@@ -9,10 +9,65 @@
     <title>Broadway Lottery</title>
   </head>
   <body>
-
   <div id="left-pane-container">
+    <button class="button-primary" id="expand-popup">Expand</button>
     <div class="profile-container">
+      <form>
+        <h5 class="edit-profile">Edit Profile</h5>
+        <div class="row">
+          <div class="five columns">
+            <label for="fNameInput">First Name</label>
+            <input class="u-full-width" type="text" placeholder="John" id="fNameInput">
+          </div>
+          <div class="five columns">
+            <label for="lNameInput">Last Name</label>
+            <input class="u-full-width" type="text" placeholder="Doe" id="lNameInput">
+          </div>
+        </div>
+        <div class="row">
+          <div class="seven columns">
+            <label for="emailInput">Email</label>
+            <input class="u-full-width" type="email" placeholder="johndoe@gmail.com" id="emailInput">
+          </div>
 
+          <div class="three columns">
+            <label for="ticketQuantityInput">Tickets</label>
+            <select class="u-full-width" id="ticketQuantityInput">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2" selected="selected">2</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="ten columns">
+            <label>Date of Birth</label>
+            <input class="u-full-width three columns" min="1" max="12" type="number" placeholder="MM" id="monthInput">
+            <input class="u-full-width three columns" min="1" max="31" type="number" placeholder="DD" id="dayInput">
+            <input class="u-full-width five columns" min="1850" max="2100" type="number" placeholder="YYYY" id="yearInput">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="four columns">
+            <label for="zipInput">Zip Code</label>
+            <input class="u-full-width" type="number" placeholder="10001" id="zipInput">
+          </div>
+
+          <div class="six columns">
+            <label for="countryInput">Tickets</label>
+            <select class="u-full-width" id="countryInput">
+              <option value="OTHER">Other</option>
+              <option value="CA">Canada</option>
+              <option value="US" selected="selected">United States</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <input class="button-primary six columns" type="submit" value="Save">
+        </div>
+      </form>
     </div>
 
     <div class="shows-container">

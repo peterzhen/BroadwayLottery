@@ -24,3 +24,18 @@ body {
   width: 100%;
   height: 100%;
 }
+
+#profile-container {
+	display: flex;
+	justify-content: center;
+}
+
+.row {
+	display: flex;
+	justify-content: center;
+}
+
+.edit-profile {
+	text-align: center;
+	font-weight: bold;
+}
