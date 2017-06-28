@@ -15,6 +15,8 @@
       "all_frames": true
     }
   ], "permissions": [
-    "tabs" , "*://lottery.broadwaydirect.com/*"
+    "tabs" ,
+    "*://lottery.broadwaydirect.com/*",
+    "storage"
   ]
 }

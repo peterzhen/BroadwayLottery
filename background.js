@@ -22,4 +22,6 @@ const fillForm = () => {
   tos.checked = true;
 };
 
+chrome.storage.sync.get("test2", test => console.log(test));
+
 fillForm();
