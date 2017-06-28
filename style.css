@@ -67,3 +67,8 @@ body {
   height: 100%;
   float: left;
 }
+
+#lottery-form-iframe {
+  width: 100%;
+  height: 100%;
+}
