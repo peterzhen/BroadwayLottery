@@ -5,15 +5,14 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/skeleton.css">
-    <script src="popup.js"></script>
     <title>Broadway Lottery</title>
   </head>
   <body>
   <div id="left-pane-container">
-    <button class="button-primary" id="expand-popup">Expand</button>
     <div class="profile-container">
       <form>
         <h5 class="edit-profile">Edit Profile</h5>
+        <button class="button-primary" id="expand-popup">Expand</button>
         <div class="row">
           <div class="five columns">
             <label for="fNameInput">First Name</label>
@@ -82,6 +81,6 @@
   <div id="right-pane-container">
     <iframe id="lottery-form-iframe" src="https://lottery.broadwaydirect.com/enter-lottery/?lottery=241261&window=popup"></iframe>
   </div>
-
+  <script src="popup.js"></script>
   </body>
 </html>
