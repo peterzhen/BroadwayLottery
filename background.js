@@ -24,4 +24,5 @@ const fillForm = profile => {
 
 chrome.storage.sync.get("profile", profile => {
   fillForm(profile);
+  console.log(profile);
 });
