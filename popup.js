@@ -1,7 +1,10 @@
-const expandButton = document.getElementById("expand-popup");
+const backButton = document.getElementById("back-button");
+const saveButton = document.getElementById("save-button");
 
-expandButton.onclick = () => {
-  document.getElementById("hiddenDiv").innerHTML = "";
-  // document.body.style.width = "100px";
-  // document.getElementsByTagName("html")[0].style.width = "100px";
+backButton.onclick = () => {
+  console.log("back!");
+};
+
+saveButton.onclick = () => {
+  console.log("saved!");
 };
