@@ -21,6 +21,20 @@ body {
 	color: darkgrey;
 }
 
+#notification {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 10px;
+	font-weight: bold;
+  color: blue;
+  transition: opacity .5s ease-in-out;
+  width: 80px;
+  height: 20px;
+  text-align: right;
+  opacity: 0;
+}
+
 #back-button:hover {
 	cursor: pointer;
 	color: lightgrey;

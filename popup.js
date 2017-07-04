@@ -11,6 +11,16 @@ const country = document.getElementById("countryInput");
 const backButton = document.getElementById("back-button");
 const saveButton = document.getElementById("save-button");
 
+const notification = document.getElementById("notification");
+
+const notify = message => {
+  notification.innerHTML = message;
+  notification.style.opacity = "1";
+  setTimeout( () => {
+      notification.style.opacity = "0";
+  }, 1000);
+};
+
 chrome.storage.sync.get("profile", storage => {
   if (storage.profile){
     firstName.value = storage.profile.fname;
@@ -22,6 +32,8 @@ chrome.storage.sync.get("profile", storage => {
     year.value = storage.profile.year;
     zip.value = storage.profile.zip;
     country.selectedIndex = storage.profile.selectedIndex;
+
+    notify("Profile Loaded");
   }
 });
 
@@ -42,11 +54,11 @@ const saveProfile = () => {
 };
 
 backButton.onclick = () => {
-  console.log("back!");
+  notify("Back");
 };
 
 saveButton.onclick = () => {
   chrome.storage.sync.set({ "profile" : saveProfile() }, () => {
-    console.log("saved!");
+    notify("Saved");
   });
 };
