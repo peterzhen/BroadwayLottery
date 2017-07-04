@@ -1,4 +1,4 @@
-const fillForm = () => {
+const fillForm = profile => {
   const firstName = document.getElementById("dlslot_name_first");
   const lastName = document.getElementById("dlslot_name_last");
   const ticketQty = document.getElementById("dlslot_ticket_qty");
@@ -18,10 +18,10 @@ const fillForm = () => {
   day.value = "13";
   year.value = "1989";
   zip.value = "11370";
-  country.options.selectedIndex = 2;
+  country.options.selectedIndex = profile.country.selectedIndex;
   tos.checked = true;
 };
 
-chrome.storage.sync.get("test2", test => console.log(test));
-
-fillForm();
+chrome.storage.sync.get("profile", profile => {
+  fillForm(profile);
+});
