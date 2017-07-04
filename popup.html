@@ -10,9 +10,12 @@
   <body>
   <div id="left-pane-container">
     <div class="profile-container">
-      <form>
+      <div class="heading-container">
+        <button class="button-primary done-button">Done</button>
         <h5 class="edit-profile">Edit Profile</h5>
-        <button class="button-primary" id="expand-popup">Expand</button>
+      </div>
+
+      <form>
         <div class="row">
           <div class="five columns">
             <label for="fNameInput">First Name</label>
@@ -23,13 +26,23 @@
             <input class="u-full-width" type="text" placeholder="Doe" id="lNameInput">
           </div>
         </div>
+
         <div class="row">
-          <div class="seven columns">
+          <div class="u-full-width">
             <label for="emailInput">Email</label>
             <input class="u-full-width" type="email" placeholder="johndoe@gmail.com" id="emailInput">
           </div>
+        </div>
 
-          <div class="three columns">
+        <div class="row">
+          <div class="ten columns">
+            <label>Date of Birth</label>
+            <input class="month-input" min="1" max="12" type="number" placeholder="MM" id="monthInput">
+            <input class="day-input" min="1" max="31" type="number" placeholder="DD" id="dayInput">
+            <input class="year-input" min="1850" max="2100" type="number" placeholder="YYYY" id="yearInput">
+          </div>
+
+          <div class="ticket-input">
             <label for="ticketQuantityInput">Tickets</label>
             <select class="u-full-width" id="ticketQuantityInput">
               <option value="0">0</option>
@@ -39,14 +52,7 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="ten columns">
-            <label>Date of Birth</label>
-            <input class="u-full-width three columns" min="1" max="12" type="number" placeholder="MM" id="monthInput">
-            <input class="u-full-width three columns" min="1" max="31" type="number" placeholder="DD" id="dayInput">
-            <input class="u-full-width five columns" min="1850" max="2100" type="number" placeholder="YYYY" id="yearInput">
-          </div>
-        </div>
+
 
         <div class="row">
           <div class="four columns">
@@ -64,7 +70,7 @@
           </div>
         </div>
         <div class="row">
-          <input class="button-primary six columns" type="submit" value="Save">
+          <input class="button-primary save-button" type="submit" value="Save">
         </div>
       </form>
     </div>

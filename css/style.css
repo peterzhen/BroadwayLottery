@@ -1,6 +1,6 @@
 html, body {
   height: 500px;
-  width: 900px;
+  width: 400px;
 }
 
 body {
@@ -8,16 +8,7 @@ body {
 }
 
 #left-pane-container {
-  width: 400px;
-  height: 100%;
-  float: left;
-  border-right: 1px grey solid;
-}
-
-#right-pane-container {
-  width: 400px;
-  height: 100%;
-  float: left;
+	padding: 20px;
 }
 
 #lottery-form-iframe {
@@ -25,9 +16,22 @@ body {
   height: 100%;
 }
 
+.heading-container {
+	width: 100%;
+	height: 50px;
+}
+
 #profile-container {
 	display: flex;
 	justify-content: center;
+}
+
+.done-button {
+	float: right;
+}
+
+.save-button {
+	width: 150px;
 }
 
 .row {
@@ -38,4 +42,16 @@ body {
 .edit-profile {
 	text-align: center;
 	font-weight: bold;
+}
+
+.month-input {
+	width: 65px;
+}
+
+.day-input {
+	width: 65px;
+}
+
+.year-input {
+	width: 130px;
 }
