@@ -1,3 +1,5 @@
+
+// form dom
 const firstName = document.getElementById("fNameInput");
 const lastName = document.getElementById("lNameInput");
 const ticketQty = document.getElementById("ticketQuantityInput");
@@ -8,9 +10,11 @@ const year = document.getElementById("yearInput");
 const zip = document.getElementById("zipInput");
 const country = document.getElementById("countryInput");
 
+// form buttons
 const backButton = document.getElementById("back-button");
 const saveButton = document.getElementById("save-button");
 
+// form errors
 const notification = document.getElementById("notification");
 
 const notify = message => {
@@ -34,14 +38,15 @@ const clearError = () => {
 };
 
 const formValidation = () => {
-    firstNameValidation();
-    lastNameValidation();
-    emailValidation();
-    ticketValidation();
-    DOBValidation();
-    zipValidation();
-    countryValidation();
-    return true;
+    const results = new Set();
+    results.add(firstNameValidation());
+    results.add(lastNameValidation());
+    results.add(emailValidation());
+    results.add(ticketValidation());
+    results.add(DOBValidation());
+    results.add(zipValidation());
+    results.add(countryValidation());
+    return !results.has(false);
 };
 
 const firstNameValidation = () => {
