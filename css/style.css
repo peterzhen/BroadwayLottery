@@ -15,27 +15,61 @@ body {
   flex-wrap: nowrap;
 }
 
+.heading-container {
+	width: 100%;
+	height: 50px;
+	position: relative;
+}
+
+/* Shows Page */
 #shows-container {
   width: 400px;
   min-width: 400px;
   height: 500px;
   padding: 20px;
-  transition: all .5s;
+  transition: margin .5s;
 }
 
+.app-title-label {
+	font-weight: bold;
+	text-align: center;
+}
+
+.edit-profile-label {
+	font-weight: bold;
+	text-align: center;
+}
+
+#edit-profile {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 10px;
+	font-weight: bold;
+  text-align: right;
+}
+
+#edit-button {
+  font-size: 14px;
+}
+
+#edit-profile:hover {
+  cursor: pointer;
+}
+
+#edit-profile:hover #edit-button {
+  color: lightgrey;
+}
+
+/* Profile Page */
 #profile-container {
+  visibility: hidden;
   padding: 20px;
   width: 400px;
   min-width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.heading-container {
-	width: 100%;
-	height: 50px;
-	position: relative;
 }
 
 #back-button {
@@ -64,12 +98,6 @@ body {
 	cursor: pointer;
 	color: lightgrey;
 }
-
-.edit-profile {
-	font-weight: bold;
-	text-align: center;
-}
-
 
 #save-button {
 	width: 150px;

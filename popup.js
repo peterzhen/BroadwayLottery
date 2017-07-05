@@ -1,3 +1,4 @@
+debugger
 // shows dom
 
 // shows button
@@ -223,12 +224,14 @@ saveButton.onclick = () => {
 };
 
 backButton.onclick = () => {
-  clearError();
+  document.getElementById("profile-container").style.visibility = "hidden";
   document.getElementById("shows-container").style.marginLeft = "0px";
+  clearError();
   for (let key in formElements) formElements[key].style.borderColor = "";
 };
 
 editProfileButton.onclick = () => {
   loadProfile();
+  document.getElementById("profile-container").style.visibility = "visible";
   document.getElementById("shows-container").style.marginLeft = "-440px";
 };
