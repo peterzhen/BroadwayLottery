@@ -45,7 +45,7 @@ body {
 	text-align: center;
 }
 
-.profile-container {
+#profile-container {
 	padding: 20px;
 	display: flex;
 	flex-direction: column;

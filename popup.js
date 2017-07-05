@@ -200,10 +200,6 @@ const saveProfile = () => {
   return profile;
 };
 
-backButton.onclick = () => {
-  notify("Back");
-};
-
 saveButton.onclick = () => {
   clearError();
   if (formValidation()){
@@ -211,4 +207,8 @@ saveButton.onclick = () => {
       notify("Saved");
     });
   }
+};
+
+backButton.onclick = () => {
+  //TODO move to edit profile
 };
