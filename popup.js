@@ -1,14 +1,20 @@
+// shows dom
+
+// shows button
+const editProfileButton = document.getElementById("edit-profile");
 
 // form dom
-const firstName = document.getElementById("fNameInput");
-const lastName = document.getElementById("lNameInput");
-const ticketQty = document.getElementById("ticketQuantityInput");
-const email = document.getElementById("emailInput");
-const month = document.getElementById("monthInput");
-const day = document.getElementById("dayInput");
-const year = document.getElementById("yearInput");
-const zip = document.getElementById("zipInput");
-const country = document.getElementById("countryInput");
+const formElements = {
+  "firstName" : document.getElementById("fNameInput"),
+  "lastName" : document.getElementById("lNameInput"),
+  "ticketQty" : document.getElementById("ticketQuantityInput"),
+  "email" : document.getElementById("emailInput"),
+  "month" : document.getElementById("monthInput"),
+  "day" : document.getElementById("dayInput"),
+  "year" : document.getElementById("yearInput"),
+  "zip" : document.getElementById("zipInput"),
+  "country" : document.getElementById("countryInput")
+};
 
 // form buttons
 const backButton = document.getElementById("back-button");
@@ -50,106 +56,106 @@ const formValidation = () => {
 };
 
 const firstNameValidation = () => {
-  if (firstName.value === ""){
+  if (formElements.firstName.value === ""){
       showError('Please enter first name');
-      firstName.style.borderColor = "red";
+      formElements.firstName.style.borderColor = "red";
       return false;
   } else {
-      firstName.style.borderColor = "green";
+      formElements.firstName.style.borderColor = "green";
   }
-  if (!/^[A-Za-z ]+$/.test(firstName.value)) {
+  if (!/^[A-Za-z ]+$/.test(formElements.firstName.value)) {
       showError("Enter a valid first name");
-      firstName.style.borderColor = "red";
+      formElements.firstName.style.borderColor = "red";
       return false;
   } else {
-      firstName.style.borderColor = "green";
+      formElements.firstName.style.borderColor = "green";
   }
-  if (firstName.value.length <= 2){
+  if (formElements.firstName.value.length <= 2){
       showError('Your name is too Short');
-      firstName.style.borderColor = "red";
+      formElements.firstName.style.borderColor = "red";
       return false;
   } else {
-      firstName.style.borderColor = "green";
+      formElements.firstName.style.borderColor = "green";
   }
 };
 
 const lastNameValidation = () => {
-  if (lastName.value === ""){
+  if (formElements.lastName.value === ""){
       showError('Please enter last name');
-      lastName.style.borderColor = "red";
+      formElements.lastName.style.borderColor = "red";
       return false;
   } else {
-      lastName.style.borderColor = "green";
+      formElements.lastName.style.borderColor = "green";
   }
-  if (!/^[A-Za-z ]+$/.test(lastName.value)) {
+  if (!/^[A-Za-z ]+$/.test(formElements.lastName.value)) {
       showError("Enter a valid last name");
-      lastName.style.borderColor = "red";
+      formElements.lastName.style.borderColor = "red";
       return false;
   } else {
-      lastName.style.borderColor = "green";
+      formElements.lastName.style.borderColor = "green";
   }
-  if (lastName.value.length <= 2){
+  if (formElements.lastName.value.length <= 2){
       showError('Your last name is too short');
       lastName.style.borderColor = "red";
       return false;
   } else {
-      lastName.style.borderColor = "green";
+      formElements.lastName.style.borderColor = "green";
   }
 };
 
 const emailValidation = () => {
-  if (email.value === ""){
-    showError("Please enter email");
-    email.style.borderColor = "red";
+  if (formElements.email.value === ""){
+    showError("Please enter formElements.email");
+    formElements.email.style.borderColor = "red";
     return false;
   } else {
-    email.style.borderColor = "green";
+    formElements.email.style.borderColor = "green";
   }
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  if (!re.test(email.value)){
-    showError("Enter valid email address");
-    email.style.borderColor = "red";
+  if (!re.test(formElements.email.value)){
+    showError("Enter valid formElements.email address");
+    formElements.email.style.borderColor = "red";
     return false;
   } else {
-    email.style.borderColor = "green";
+    formElements.email.style.borderColor = "green";
   }
 };
 
 const ticketValidation = () => {
-  if (ticketQty.selectedIndex < 1){
+  if (formElements.ticketQty.selectedIndex < 1){
     showError('Please choose ticket amount');
-    ticketQty.style.borderColor = "red";
+    formElements.ticketQty.style.borderColor = "red";
     return false;
   } else {
-    ticketQty.style.borderColor = "green";
+    formElements.ticketQty.style.borderColor = "green";
   }
 };
 
 const monthValidation = () => {
-  if (Number(month.value) < 1 || Number(month.value) > 12){
-    showError("Enter a valid DOB month");
-    month.style.borderColor = "red";
+  if (Number(formElements.month.value) < 1 || Number(formElements.month.value) > 12){
+    showError("Enter a valid DOB formElements.month");
+    formElements.month.style.borderColor = "red";
     return false;
   } else {
-    month.style.borderColor = "green";
+    formElements.month.style.borderColor = "green";
   }
 };
 const dayValidation = () => {
-  if (Number(day.value) < 1 || Number(day.value) > 31){
-    showError("Enter a valid DOB day");
-    day.style.borderColor = "red";
+  if (Number(formElements.day.value) < 1 || Number(formElements.day.value) > 31){
+    showError("Enter a valid DOB formElements.day");
+    formElements.day.style.borderColor = "red";
     return false;
   } else {
-    day.style.borderColor = "green";
+    formElements.day.style.borderColor = "green";
   }
 };
 const yearValidation = () => {
-  if (Number(year.value) < 1880 || Number(year.value) > 2010){
-    showError("Enter a valid DOB year");
-    year.style.borderColor = "red";
+  if (Number(formElements.year.value) < 1880 || Number(formElements.year.value) > 2010){
+    showError("Enter a valid DOB formElements.year");
+    formElements.year.style.borderColor = "red";
     return false;
   } else {
-    year.style.borderColor = "green";
+    formElements.year.style.borderColor = "green";
   }
 };
 
@@ -160,30 +166,30 @@ const DOBValidation = () => {
 };
 
 const zipValidation = () => {
-  if (zip.value.length !== 5){
-    showError("Enter a valid zip code");
-    zip.style.borderColor = "red";
+  if (formElements.zip.value.length !== 5){
+    showError("Enter a valid formElements.zip code");
+    formElements.zip.style.borderColor = "red";
     return false;
   } else {
-    zip.style.borderColor = "green";
+    formElements.zip.style.borderColor = "green";
   }
 };
 
 const countryValidation = () => {
-  country.style.borderColor = "green";
+  formElements.country.style.borderColor = "green";
 };
 
 chrome.storage.sync.get("profile", storage => {
   if (storage.profile){
-    firstName.value = storage.profile.fname;
-    lastName.value = storage.profile.lname;
-    ticketQty.selectedIndex = storage.profile.ticketQty;
-    email.value = storage.profile.email;
-    month.value = storage.profile.month;
-    day.value = storage.profile.day;
-    year.value = storage.profile.year;
-    zip.value = storage.profile.zip;
-    country.selectedIndex = storage.profile.selectedIndex;
+    formElements.firstName.value = storage.profile.fname;
+    formElements.lastName.value = storage.profile.lname;
+    formElements.ticketQty.selectedIndex = storage.profile.ticketQty;
+    formElements.email.value = storage.profile.email;
+    formElements.month.value = storage.profile.month;
+    formElements.day.value = storage.profile.day;
+    formElements.year.value = storage.profile.year;
+    formElements.zip.value = storage.profile.zip;
+    formElements.country.selectedIndex = storage.profile.selectedIndex;
 
     notify("Profile Loaded");
   }
@@ -191,15 +197,15 @@ chrome.storage.sync.get("profile", storage => {
 
 const saveProfile = () => {
   const profile = {
-    "fname": firstName.value,
-    "lname": lastName.value,
-    "ticketQty": ticketQty.selectedIndex,
-    "email": email.value,
-    "month": month.value,
-    "day": day.value,
-    "year": year.value,
-    "zip": zip.value,
-    "country": country.selectedIndex
+    "fname": formElements.firstName.value,
+    "lname": formElements.lastName.value,
+    "ticketQty": formElements.ticketQty.selectedIndex,
+    "email": formElements.email.value,
+    "month": formElements.month.value,
+    "day": formElements.day.value,
+    "year": formElements.year.value,
+    "zip": formElements.zip.value,
+    "country": formElements.country.selectedIndex
   };
 
   return profile;
@@ -215,5 +221,12 @@ saveButton.onclick = () => {
 };
 
 backButton.onclick = () => {
+  clearError();
+  document.getElementById("shows-container").style.marginLeft = "0px";
   //TODO move to edit profile
+};
+
+editProfileButton.onclick = () => {
+  document.getElementById("shows-container").style.marginLeft = "-440px";
+  notify("Profile Loaded");
 };
