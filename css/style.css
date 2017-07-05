@@ -73,3 +73,8 @@ body {
 .year-input {
 	width: 130px;
 }
+
+#error-messages {
+  text-align: center;
+  font-size: 12px;
+}

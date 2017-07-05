@@ -21,6 +21,43 @@ const notify = message => {
   }, 1000);
 };
 
+const showError = error => {
+  const errorMessage = document.getElementById("error-messages");
+  const newMessage = document.createElement("div");
+  newMessage.style.color = "red";
+  newMessage.innerHTML = error;
+  errorMessage.appendChild(newMessage);
+};
+
+const clearError = () => {
+  document.getElementById("error-messages").innerHTML = "";
+};
+
+const formValidation = () => {
+    if (firstName.value === ""){
+        showError('Please Enter First Name');
+        firstName.style.borderColor = "red";
+        return false;
+    } else {
+        firstName.style.borderColor = "green";
+    }
+    if (/^[0-9]+$/.test(firstName.value)) {
+        showError("First Name Contains Numbers!");
+        firstName.style.borderColor = "red";
+        return false;
+    }else{
+        firstName.style.borderColor = "green";
+    }
+    if (firstName.value.length <= 2){
+        showError('Your Name is To Short');
+        firstName.style.borderColor = "red";
+        return false;
+    }else{
+        firstName.style.borderColor = "green";
+    }
+    return true;
+};
+
 chrome.storage.sync.get("profile", storage => {
   if (storage.profile){
     firstName.value = storage.profile.fname;
@@ -58,7 +95,10 @@ backButton.onclick = () => {
 };
 
 saveButton.onclick = () => {
-  chrome.storage.sync.set({ "profile" : saveProfile() }, () => {
-    notify("Saved");
-  });
+  clearError();
+  if (formValidation()){
+    chrome.storage.sync.set({ "profile" : saveProfile() }, () => {
+      notify("Saved");
+    });
+  }
 };
