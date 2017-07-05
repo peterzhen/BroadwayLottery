@@ -105,7 +105,7 @@ const lastNameValidation = () => {
 
 const emailValidation = () => {
   if (formElements.email.value === ""){
-    showError("Please enter formElements.email");
+    showError("Please enter email");
     formElements.email.style.borderColor = "red";
     return false;
   } else {
@@ -113,7 +113,7 @@ const emailValidation = () => {
   }
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   if (!re.test(formElements.email.value)){
-    showError("Enter valid formElements.email address");
+    showError("Enter valid email address");
     formElements.email.style.borderColor = "red";
     return false;
   } else {
@@ -133,7 +133,7 @@ const ticketValidation = () => {
 
 const monthValidation = () => {
   if (Number(formElements.month.value) < 1 || Number(formElements.month.value) > 12){
-    showError("Enter a valid DOB formElements.month");
+    showError("Enter a valid DOB month");
     formElements.month.style.borderColor = "red";
     return false;
   } else {
@@ -142,7 +142,7 @@ const monthValidation = () => {
 };
 const dayValidation = () => {
   if (Number(formElements.day.value) < 1 || Number(formElements.day.value) > 31){
-    showError("Enter a valid DOB formElements.day");
+    showError("Enter a valid DOB day");
     formElements.day.style.borderColor = "red";
     return false;
   } else {
@@ -151,7 +151,7 @@ const dayValidation = () => {
 };
 const yearValidation = () => {
   if (Number(formElements.year.value) < 1880 || Number(formElements.year.value) > 2010){
-    showError("Enter a valid DOB formElements.year");
+    showError("Enter a valid DOB year");
     formElements.year.style.borderColor = "red";
     return false;
   } else {
@@ -167,7 +167,7 @@ const DOBValidation = () => {
 
 const zipValidation = () => {
   if (formElements.zip.value.length !== 5){
-    showError("Enter a valid formElements.zip code");
+    showError("Enter a valid zip code");
     formElements.zip.style.borderColor = "red";
     return false;
   } else {
@@ -179,21 +179,23 @@ const countryValidation = () => {
   formElements.country.style.borderColor = "green";
 };
 
-chrome.storage.sync.get("profile", storage => {
-  if (storage.profile){
-    formElements.firstName.value = storage.profile.fname;
-    formElements.lastName.value = storage.profile.lname;
-    formElements.ticketQty.selectedIndex = storage.profile.ticketQty;
-    formElements.email.value = storage.profile.email;
-    formElements.month.value = storage.profile.month;
-    formElements.day.value = storage.profile.day;
-    formElements.year.value = storage.profile.year;
-    formElements.zip.value = storage.profile.zip;
-    formElements.country.selectedIndex = storage.profile.selectedIndex;
+const loadProfile = () => {
+  chrome.storage.sync.get("profile", storage => {
+    if (storage.profile){
+      formElements.firstName.value = storage.profile.fname;
+      formElements.lastName.value = storage.profile.lname;
+      formElements.ticketQty.selectedIndex = storage.profile.ticketQty;
+      formElements.email.value = storage.profile.email;
+      formElements.month.value = storage.profile.month;
+      formElements.day.value = storage.profile.day;
+      formElements.year.value = storage.profile.year;
+      formElements.zip.value = storage.profile.zip;
+      formElements.country.selectedIndex = storage.profile.selectedIndex;
 
-    notify("Profile Loaded");
-  }
-});
+      notify("Profile Loaded");
+    }
+  });
+};
 
 const saveProfile = () => {
   const profile = {
@@ -223,10 +225,10 @@ saveButton.onclick = () => {
 backButton.onclick = () => {
   clearError();
   document.getElementById("shows-container").style.marginLeft = "0px";
-  //TODO move to edit profile
+  for (let key in formElements) formElements[key].style.borderColor = "";
 };
 
 editProfileButton.onclick = () => {
+  loadProfile();
   document.getElementById("shows-container").style.marginLeft = "-440px";
-  notify("Profile Loaded");
 };
