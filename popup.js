@@ -9,10 +9,9 @@ const showList = [
   "https://lottery.broadwaydirect.com/show/wicked/"
 ];
 
-// shows dom
-
-// shows button
+// shows page buttons
 const editProfileButton = document.getElementById("edit-profile");
+const openSelectedButton = document.getElementById("open-selected-button");
 
 // form dom
 const formElements = {
@@ -244,4 +243,16 @@ editProfileButton.onclick = () => {
   loadProfile();
   document.getElementById("profile-container").style.visibility = "visible";
   document.getElementById("shows-container").style.marginLeft = "-440px";
+};
+
+openSelectedButton.onclick = () => {
+  const selectedShows = [];
+  const checkBoxes = document.getElementsByClassName("show-checkbox");
+  for (let i = 0; i < checkBoxes.length; i++){
+    if (checkBoxes[i].checked) selectedShows.push(Number(checkBoxes[i].value));
+  }
+
+  selectedShows.forEach( i => {
+    chrome.tabs.create({ url: showList[i] });
+  });
 };
