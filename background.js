@@ -1,3 +1,10 @@
+const clickOpenShow = () => {
+  const openButtons = document.getElementsByClassName("open-button");
+  for (let i = 0; i < openButtons.length; i++){
+    openButtons[i].click();
+  }
+};
+
 const fillForm = storage => {
   if (storage.profile){
     const firstName = document.getElementById("dlslot_name_first");
@@ -27,3 +34,5 @@ const fillForm = storage => {
 chrome.storage.sync.get("profile", storage => {
   fillForm(storage);
 });
+
+clickOpenShow();
