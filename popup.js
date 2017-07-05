@@ -200,7 +200,7 @@ const loadProfile = () => {
       formElements.day.value = storage.profile.day;
       formElements.year.value = storage.profile.year;
       formElements.zip.value = storage.profile.zip;
-      formElements.country.selectedIndex = storage.profile.selectedIndex;
+      formElements.country.selectedIndex = storage.profile.country;
 
       notify("Profile Loaded");
     }
@@ -253,6 +253,15 @@ openSelectedButton.onclick = () => {
   }
 
   selectedShows.forEach( i => {
-    chrome.tabs.create({ url: showList[i] });
+    chrome.tabs.create({
+      url: showList[i],
+      active: false
+    }, tab => {
+      // setTimeout(() => chrome.tabs.remove(tab.id), 1000);
+      chrome.tabs.executeScript(tab.id, {file: "script.js"}, response => {
+        debugger
+        console.log(response);
+      });
+    });
   });
 };
