@@ -34,28 +34,138 @@ const clearError = () => {
 };
 
 const formValidation = () => {
-    if (firstName.value === ""){
-        showError('Please Enter First Name');
-        firstName.style.borderColor = "red";
-        return false;
-    } else {
-        firstName.style.borderColor = "green";
-    }
-    if (/^[0-9]+$/.test(firstName.value)) {
-        showError("First Name Contains Numbers!");
-        firstName.style.borderColor = "red";
-        return false;
-    }else{
-        firstName.style.borderColor = "green";
-    }
-    if (firstName.value.length <= 2){
-        showError('Your Name is To Short');
-        firstName.style.borderColor = "red";
-        return false;
-    }else{
-        firstName.style.borderColor = "green";
-    }
+    firstNameValidation();
+    lastNameValidation();
+    emailValidation();
+    ticketValidation();
+    DOBValidation();
+    zipValidation();
+    countryValidation();
     return true;
+};
+
+const firstNameValidation = () => {
+  if (firstName.value === ""){
+      showError('Please enter first name');
+      firstName.style.borderColor = "red";
+      return false;
+  } else {
+      firstName.style.borderColor = "green";
+  }
+  if (!/^[A-Za-z ]+$/.test(firstName.value)) {
+      showError("Enter a valid first name");
+      firstName.style.borderColor = "red";
+      return false;
+  } else {
+      firstName.style.borderColor = "green";
+  }
+  if (firstName.value.length <= 2){
+      showError('Your name is too Short');
+      firstName.style.borderColor = "red";
+      return false;
+  } else {
+      firstName.style.borderColor = "green";
+  }
+};
+
+const lastNameValidation = () => {
+  if (lastName.value === ""){
+      showError('Please enter last name');
+      lastName.style.borderColor = "red";
+      return false;
+  } else {
+      lastName.style.borderColor = "green";
+  }
+  if (!/^[A-Za-z ]+$/.test(lastName.value)) {
+      showError("Enter a valid last name");
+      lastName.style.borderColor = "red";
+      return false;
+  } else {
+      lastName.style.borderColor = "green";
+  }
+  if (lastName.value.length <= 2){
+      showError('Your last name is too short');
+      lastName.style.borderColor = "red";
+      return false;
+  } else {
+      lastName.style.borderColor = "green";
+  }
+};
+
+const emailValidation = () => {
+  if (email.value === ""){
+    showError("Please enter email");
+    email.style.borderColor = "red";
+    return false;
+  } else {
+    email.style.borderColor = "green";
+  }
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if (!re.test(email.value)){
+    showError("Enter valid email address");
+    email.style.borderColor = "red";
+    return false;
+  } else {
+    email.style.borderColor = "green";
+  }
+};
+
+const ticketValidation = () => {
+  if (ticketQty.selectedIndex < 1){
+    showError('Please choose ticket amount');
+    ticketQty.style.borderColor = "red";
+    return false;
+  } else {
+    ticketQty.style.borderColor = "green";
+  }
+};
+
+const monthValidation = () => {
+  if (Number(month.value) < 1 || Number(month.value) > 12){
+    showError("Enter a valid DOB month");
+    month.style.borderColor = "red";
+    return false;
+  } else {
+    month.style.borderColor = "green";
+  }
+};
+const dayValidation = () => {
+  if (Number(day.value) < 1 || Number(day.value) > 31){
+    showError("Enter a valid DOB day");
+    day.style.borderColor = "red";
+    return false;
+  } else {
+    day.style.borderColor = "green";
+  }
+};
+const yearValidation = () => {
+  if (Number(year.value) < 1880 || Number(year.value) > 2010){
+    showError("Enter a valid DOB year");
+    year.style.borderColor = "red";
+    return false;
+  } else {
+    year.style.borderColor = "green";
+  }
+};
+
+const DOBValidation = () => {
+  monthValidation();
+  dayValidation();
+  yearValidation();
+};
+
+const zipValidation = () => {
+  if (zip.value.length !== 5){
+    showError("Enter a valid zip code");
+    zip.style.borderColor = "red";
+    return false;
+  } else {
+    zip.style.borderColor = "green";
+  }
+};
+
+const countryValidation = () => {
+  country.style.borderColor = "green";
 };
 
 chrome.storage.sync.get("profile", storage => {
