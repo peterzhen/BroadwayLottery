@@ -257,6 +257,7 @@ openSelectedButton.onclick = () => {
       url: showList[i],
       active: false
     }, tab => {
+      debugger
       // setTimeout(() => chrome.tabs.remove(tab.id), 1000);
       chrome.tabs.executeScript(tab.id, {file: "script.js"}, response => {
         debugger

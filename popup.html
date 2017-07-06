@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/skeleton.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/checkbox.css">
     <title>Broadway Lottery</title>
   </head>
   <body>
@@ -17,48 +19,130 @@
 
       <div class="show-list-container">
         <div class="show-row">
-          <label>Aladdin</label>
-          <input class="show-checkbox" type="checkbox" value="0">
-        </div>
-        <div class="show-row">
-          <label>Cats</label>
-          <input class="show-checkbox" type="checkbox" value="1">
-        </div>
-        <div class="show-row">
-          <label>Hamilton</label>
-          <input class="show-checkbox" type="checkbox" value="2">
-        </div>
-        <div class="show-row">
-          <label>On Your Feet</label>
-          <input class="show-checkbox" type="checkbox" value="3">
-        </div>
-        <div class="show-row">
-          <label>The Lion King</label>
-          <input class="show-checkbox" type="checkbox" value="4">
-        </div>
-        <div class="show-row">
-          <label>Waitress</label>
-          <input class="show-checkbox" type="checkbox" value="5">
-        </div>
-        <div class="show-row">
-          <label>War Paint</label>
-          <input class="show-checkbox" type="checkbox" value="6">
-        </div>
-        <div class="show-row">
-          <label>Wicket</label>
-          <input class="show-checkbox" type="checkbox" value="7">
-        </div>
-      </div>
+          <label class="show-name">Aladdin</label>
 
-      <br>
-      <div class="row">
-        <button class="primary-button" id="open-selected-button">Open Selected</button>
-      </div>
-      <!-- <ul>
-        <li><a target="_blank" href="https://lottery.broadwaydirect.com/show/aladdin/">Aladdin</a></li>
-        <li><a target="_blank" href="https://lottery.broadwaydirect.com/show/hamilton-chicago/">Hamilton</a></li>
-        <li><a target="_blank" href="https://lottery.broadwaydirect.com/enter-lottery/?lottery=241261&window=popup">Hamilton</a></li>
-      </ul> -->
+          <div class="checkbox">
+            <form>
+             <div>
+               <input class="show-checkbox" type="checkbox" id="check0" name="check" value="0"/>
+               <label class="show-label" for="check0">
+                 <span></span>
+               </label>
+             </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="show-row">
+          <label class="show-name">Cats</label>
+
+          <div class="checkbox">
+            <form>
+             <div>
+               <input class="show-checkbox" type="checkbox" id="check1" name="check" value="1"/>
+               <label class="show-label" for="check1">
+                 <span></span>
+               </label>
+             </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="show-row">
+          <label class="show-name">Hamilton</label>
+
+          <div class="checkbox">
+            <form>
+             <div>
+               <input class="show-checkbox" type="checkbox" id="check2" name="check" value="2"/>
+               <label class="show-label" for="check2">
+                 <span></span>
+               </label>
+             </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="show-row">
+          <label class="show-name">On Your Feet</label>
+
+          <div class="checkbox">
+            <form>
+             <div>
+               <input class="show-checkbox" type="checkbox" id="check3" name="check" value="3"/>
+               <label class="show-label" for="check3">
+                 <span></span>
+               </label>
+             </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="show-row">
+          <label class="show-name">The Lion King</label>
+
+          <div class="checkbox">
+            <form>
+             <div>
+               <input class="show-checkbox" type="checkbox" id="check4" name="check" value="4"/>
+               <label class="show-label" for="check4">
+                 <span></span>
+               </label>
+             </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="show-row">
+          <label class="show-name">Waitress</label>
+
+          <div class="checkbox">
+            <form>
+             <div>
+               <input class="show-checkbox" type="checkbox" id="check5" name="check" value="5"/>
+               <label class="show-label" for="check5">
+                 <span></span>
+               </label>
+             </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="show-row">
+          <label class="show-name">War Paint</label>
+
+          <div class="checkbox">
+            <form>
+             <div>
+               <input class="show-checkbox" type="checkbox" id="check6" name="check" value="6"/>
+               <label class="show-label" for="check6">
+                 <span></span>
+               </label>
+             </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="show-row">
+          <label class="show-name">Wicked</label>
+
+          <div class="checkbox">
+            <form>
+             <div>
+               <input class="show-checkbox" type="checkbox" id="check7" name="check" value="7"/>
+               <label class="show-label" for="check7">
+                 <span></span>
+               </label>
+             </div>
+            </form>
+          </div>
+        </div>
+
+        <br>
+        <div class="row">
+          <button class="primary-button" id="open-selected-button">Open Selected</button>
+        </div>
+      </div>      
     </div>
 
     <div id="profile-container">

@@ -70,6 +70,14 @@ body {
   flex-wrap: nowrap;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  height: 35px;
+  margin: 5px;
+}
+
+.show-name {
+  font-size: 20px;
+  margin-bottom: 0;
 }
 
 #open-selected-button {
