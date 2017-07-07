@@ -33,6 +33,8 @@ body {
 .app-title-label {
 	font-weight: bold;
 	text-align: center;
+  font-family: 'Lobster', cursive;
+  font-size: 25px;
 }
 
 .edit-profile-label {
@@ -78,6 +80,7 @@ body {
 .show-name {
   font-size: 20px;
   margin-bottom: 0;
+  font-family: 'Lobster', cursive;
 }
 
 #open-selected-button {
@@ -128,7 +131,7 @@ body {
 
 .row {
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 }
 
 /* DOB CSS */
