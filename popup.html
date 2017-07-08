@@ -11,6 +11,7 @@
     <!-- <link rel="stylesheet" href="/css/skeleton.css"> -->
     <!-- <link rel="stylesheet" href="/css/checkbox.css"> -->
     <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <title>Broadway Lottery</title>
   </head>
   <body>
@@ -150,77 +151,87 @@
     </div>
 
     <div class="container" id="profile-container">
-      <div class="heading-container">
-        <div id="back-button"><</div>
-        <h5 class="edit-profile-label">Edit Profile</h5>
-        <div id="notification"></div>
+      <div class="heading-container col s12">
+        <i id="back-button" class="small material-icons">keyboard_arrow_left</i>
+        <h5 class="edit-profile-label center-align">Edit Profile</h5>
+        <h6 id="notification"></h6>
       </div>
 
       <div class="row">
-        <div class="five columns">
-          <label for="fNameInput">First Name</label>
-          <input class="u-full-width" type="text" id="fNameInput">
+        <div class="col s12">
+          <div class="input-field col s6">
+            <input id="fNameInput" type="text" class="validate">
+            <label for="fNameInput">First Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="lNameInput" type="text" class="validate">
+            <label for="lNameInput">Last Name</label>
+          </div>
         </div>
       </div>
-
       <div class="row">
-        <div class="five columns">
-          <label for="lNameInput">Last Name</label>
-          <input class="u-full-width" type="text" placeholder="Doe" id="lNameInput">
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="u-full-width">
-          <label for="emailInput">Email</label>
-          <input class="u-full-width" type="email" placeholder="johndoe@gmail.com" id="emailInput">
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="ten columns">
-          <label>Date of Birth</label>
-          <input class="month-input" min="1" max="12" type="number" placeholder="MM" id="monthInput">
-          <input class="day-input" min="1" max="31" type="number" placeholder="DD" id="dayInput">
-          <input class="year-input" min="1850" max="2100" type="number" placeholder="YYYY" id="yearInput">
-        </div>
-
-        <div class="ticket-input">
-          <label for="ticketQuantityInput">Tickets</label>
-          <select class="u-full-width" id="ticketQuantityInput">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2" selected="selected">2</option>
-          </select>
+        <div class="col s12">
+          <div class="input-field col s12">
+            <input id="emailInput" type="email" class="validate">
+            <label for="emailInput">Email</label>
+          </div>
         </div>
       </div>
 
       <div class="row">
-        <div class="four columns">
-          <label for="zipInput">Zip Code</label>
-          <input class="u-pull-left" type="number" placeholder="10001" id="zipInput">
-        </div>
-
-        <div class="six columns">
-          <label for="countryInput">Country</label>
-          <select class="u-full-width" id="countryInput">
-            <option value="OTHER">Other</option>
-            <option value="CA">Canada</option>
-            <option value="USA" selected="selected">United States</option>
-          </select>
+        <div class="col s12">
+          <div class="input-field col s9">
+            <div class="input-field col s2 remove-left-padding remove-top-margin">
+              <input class="remove-bottom-margin" id="monthInput" min="1" max="12" type="number" placeholder="MM" data-length="2">
+            </div>
+            <div class="input-field col s2 remove-left-padding remove-top-margin">
+              <input class="remove-bottom-margin" id="dayInput" min="1" max="31" type="number" placeholder="DD" data-length="2">
+            </div>
+            <div class="input-field col s3 remove-left-padding remove-top-margin">
+              <input class="remove-bottom-margin" id="yearInput" min="1850" max="2100" type="number" placeholder="YYYY" data-length="4">
+            </div>
+            <label>Date of Birth</label>
+          </div>
+          <div class="input-field col s3">
+            <select class="remove-bottom-margin remove-top-margin" id="ticketQuantityInput">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+            </select>
+            <label style="top: 10px;">Tickets</label>
+          </div>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col s12">
+          <div class="input-field col s6">
+            <input type="number" id="zipInput" name="zipInput">
+            <label for="zipInput">Zip Code</label>
+          </div>
+          <div class="input-field col s6">
+            <select id="countryInput">
+              <option value="OTHER">Other</option>
+              <option value="CA">Canada</option>
+              <option value="USA" selected="selected">United States</option>
+            </select>
+            <label style="top: 10px;" for="countryInput">Country</label>
+          </div>
+        </div>
+      </div>
+
       <br>
-      <div class="row">
-        <button id="save-button" class="button-primary">Save</button>
+      <div class="row center-align">
+        <a id="save-button" class="waves-effect waves-light btn"><i class="material-icons right">save</i>Save</a>
       </div>
 
-      <div id="error-messages"></div>
+      <div class="row">
+        <div class="center-align" id="error-messages"></div>
+      </div>
     </div>
   </div>
 
-  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
-  <script src="popup.js"></script>
+  <script type="text/javascript" src="popup.js"></script>
   </body>
 </html>
