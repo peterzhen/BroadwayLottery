@@ -63,7 +63,9 @@ const formValidation = () => {
     results.add(lastNameValidation());
     results.add(emailValidation());
     results.add(ticketValidation());
-    results.add(DOBValidation());
+    results.add(monthValidation());
+    results.add(dayValidation());
+    results.add(yearValidation());
     results.add(zipValidation());
     results.add(countryValidation());
     return !results.has(false);
@@ -77,15 +79,8 @@ const firstNameValidation = () => {
   } else {
       formElements.firstName.style.borderColor = "#4CAF50";
   }
-  if (!/^[A-Za-z ]+$/.test(formElements.firstName.value)) {
+  if (!/^[a-zA-Z ]{2,30}$/.test(formElements.firstName.value)) {
       showError("Enter a valid first name");
-      formElements.firstName.style.borderColor = "#F44336";
-      return false;
-  } else {
-      formElements.firstName.style.borderColor = "#4CAF50";
-  }
-  if (formElements.firstName.value.length <= 2){
-      showError('Your name is too Short');
       formElements.firstName.style.borderColor = "#F44336";
       return false;
   } else {
@@ -101,16 +96,9 @@ const lastNameValidation = () => {
   } else {
       formElements.lastName.style.borderColor = "#4CAF50";
   }
-  if (!/^[A-Za-z ]+$/.test(formElements.lastName.value)) {
+  if (!/^[a-zA-Z ]{2,30}$/.test(formElements.lastName.value)) {
       showError("Enter a valid last name");
       formElements.lastName.style.borderColor = "#F44336";
-      return false;
-  } else {
-      formElements.lastName.style.borderColor = "#4CAF50";
-  }
-  if (formElements.lastName.value.length <= 2){
-      showError('Your last name is too short');
-      lastName.style.borderColor = "#F44336";
       return false;
   } else {
       formElements.lastName.style.borderColor = "#4CAF50";
@@ -121,6 +109,7 @@ const emailValidation = () => {
   if (formElements.email.value === ""){
     showError("Please enter email");
     formElements.email.style.borderColor = "#F44336";
+    formElements.email.style.boxShadow = "0 1px 0 0 #F44336";
     return false;
   } else {
     formElements.email.style.borderColor = "#4CAF50";
@@ -147,7 +136,7 @@ const ticketValidation = () => {
 };
 
 const monthValidation = () => {
-  if (Number(formElements.month.value) < 1 || Number(formElements.month.value) > 12){
+  if (isNaN(formElements.month.value) || !inRange(Number(formElements.month.value), 1, 12)){
     showError("Enter a valid DOB month");
     formElements.month.style.borderColor = "#F44336";
     return false;
@@ -156,7 +145,7 @@ const monthValidation = () => {
   }
 };
 const dayValidation = () => {
-  if (Number(formElements.day.value) < 1 || Number(formElements.day.value) > 31){
+  if (isNaN(formElements.day.value) || !inRange(Number(formElements.day.value), 1, 31)){
     showError("Enter a valid DOB day");
     formElements.day.style.borderColor = "#F44336";
     return false;
@@ -165,19 +154,13 @@ const dayValidation = () => {
   }
 };
 const yearValidation = () => {
-  if (Number(formElements.year.value) < 1880 || Number(formElements.year.value) > 2010){
+  if (isNaN(formElements.year.value) || !inRange(Number(formElements.year.value), 1850, 2010)){
     showError("Enter a valid DOB year");
     formElements.year.style.borderColor = "#F44336";
     return false;
   } else {
     formElements.year.style.borderColor = "#4CAF50";
   }
-};
-
-const DOBValidation = () => {
-  monthValidation();
-  dayValidation();
-  yearValidation();
 };
 
 const zipValidation = () => {
@@ -192,6 +175,10 @@ const zipValidation = () => {
 
 const countryValidation = () => {
   formElements.country.style.borderColor = "#4CAF50";
+};
+
+const inRange = (number, low, high) => {
+  return (number >= low && number <= high);
 };
 
 const loadProfile = () => {
@@ -243,6 +230,7 @@ backButton.onclick = () => {
   clearError();
   for (let key in formElements) {
     formElements[key].style.borderColor = "";
+    formElements[key].style.boxShadow = "";
     formElements[key].value = "";
   }
   $('label').removeClass('active');
@@ -267,10 +255,8 @@ openSelectedButton.onclick = () => {
       url: showList[i],
       active: false
     }, tab => {
-      debugger
       // setTimeout(() => chrome.tabs.remove(tab.id), 1000);
       chrome.tabs.executeScript(tab.id, {file: "script.js"}, response => {
-        debugger
         console.log(response);
       });
     });
