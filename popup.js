@@ -230,7 +230,6 @@ backButton.onclick = () => {
   clearError();
   for (let key in formElements) {
     formElements[key].style.borderColor = "";
-    formElements[key].style.boxShadow = "";
     formElements[key].value = "";
   }
   $('label').removeClass('active');
