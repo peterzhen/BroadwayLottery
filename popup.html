@@ -18,7 +18,7 @@
   <div id="popup-container">
     <div class="container" id="shows-container">
       <div class="heading-container">
-        <h5 class="app-title-label">Broadway Lottery</h5>
+        <h5 class="title-label">Broadway Lottery</h5>
         <div id="edit-profile" class="">Edit Profile  <span id="edit-button">></span></div>
       </div>
 
@@ -153,18 +153,18 @@
     <div class="container" id="profile-container">
       <div class="heading-container col s12">
         <i id="back-button" class="small material-icons">keyboard_arrow_left</i>
-        <h5 class="edit-profile-label center-align">Edit Profile</h5>
+        <h5 class="title-label center-align">Edit Profile</h5>
         <h6 id="notification"></h6>
       </div>
-
+      <br>
       <div class="row">
         <div class="col s12">
           <div class="input-field col s6">
-            <input id="fNameInput" type="text" class="validate">
+            <input id="fNameInput" type="text" class="validate" pattern="^[A-Za-z ]+$">
             <label for="fNameInput">First Name</label>
           </div>
           <div class="input-field col s6">
-            <input id="lNameInput" type="text" class="validate">
+            <input id="lNameInput" type="text" class="validate" pattern="^[A-Za-z ]+$">
             <label for="lNameInput">Last Name</label>
           </div>
         </div>

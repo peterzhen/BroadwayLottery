@@ -36,7 +36,7 @@ body {
   transition: margin .5s;
 }
 
-.app-title-label {
+.title-label {
 	font-weight: bold;
 	text-align: center;
   font-family: 'Lobster', cursive;

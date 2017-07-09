@@ -48,7 +48,7 @@ const notify = message => {
 const showError = error => {
   const errorMessage = document.getElementById("error-messages");
   const newMessage = document.createElement("div");
-  newMessage.style.color = "red";
+  newMessage.style.color = "#F44336";
   newMessage.innerHTML = error;
   errorMessage.appendChild(newMessage);
 };
@@ -72,104 +72,105 @@ const formValidation = () => {
 const firstNameValidation = () => {
   if (formElements.firstName.value === ""){
       showError('Please enter first name');
-      formElements.firstName.style.borderColor = "red";
+      formElements.firstName.style.borderColor = "#F44336";
       return false;
   } else {
-      formElements.firstName.style.borderColor = "green";
+      formElements.firstName.style.borderColor = "#4CAF50";
   }
   if (!/^[A-Za-z ]+$/.test(formElements.firstName.value)) {
       showError("Enter a valid first name");
-      formElements.firstName.style.borderColor = "red";
+      formElements.firstName.style.borderColor = "#F44336";
       return false;
   } else {
-      formElements.firstName.style.borderColor = "green";
+      formElements.firstName.style.borderColor = "#4CAF50";
   }
   if (formElements.firstName.value.length <= 2){
       showError('Your name is too Short');
-      formElements.firstName.style.borderColor = "red";
+      formElements.firstName.style.borderColor = "#F44336";
       return false;
   } else {
-      formElements.firstName.style.borderColor = "green";
+      formElements.firstName.style.borderColor = "#4CAF50";
   }
 };
 
 const lastNameValidation = () => {
   if (formElements.lastName.value === ""){
       showError('Please enter last name');
-      formElements.lastName.style.borderColor = "red";
+      formElements.lastName.style.borderColor = "#F44336";
       return false;
   } else {
-      formElements.lastName.style.borderColor = "green";
+      formElements.lastName.style.borderColor = "#4CAF50";
   }
   if (!/^[A-Za-z ]+$/.test(formElements.lastName.value)) {
       showError("Enter a valid last name");
-      formElements.lastName.style.borderColor = "red";
+      formElements.lastName.style.borderColor = "#F44336";
       return false;
   } else {
-      formElements.lastName.style.borderColor = "green";
+      formElements.lastName.style.borderColor = "#4CAF50";
   }
   if (formElements.lastName.value.length <= 2){
       showError('Your last name is too short');
-      lastName.style.borderColor = "red";
+      lastName.style.borderColor = "#F44336";
       return false;
   } else {
-      formElements.lastName.style.borderColor = "green";
+      formElements.lastName.style.borderColor = "#4CAF50";
   }
 };
 
 const emailValidation = () => {
   if (formElements.email.value === ""){
     showError("Please enter email");
-    formElements.email.style.borderColor = "red";
+    formElements.email.style.borderColor = "#F44336";
     return false;
   } else {
-    formElements.email.style.borderColor = "green";
+    formElements.email.style.borderColor = "#4CAF50";
   }
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   if (!re.test(formElements.email.value)){
     showError("Enter valid email address");
-    formElements.email.style.borderColor = "red";
+    formElements.email.validity.patternMismatch = true;
+    formElements.email.style.borderColor = "#F44336";
     return false;
   } else {
-    formElements.email.style.borderColor = "green";
+    formElements.email.style.borderColor = "#4CAF50";
   }
 };
 
 const ticketValidation = () => {
   if (formElements.ticketQty.selectedIndex < 1){
     showError('Please choose ticket amount');
-    formElements.ticketQty.style.borderColor = "red";
+    formElements.ticketQty.style.borderColor = "#F44336";
     return false;
   } else {
-    formElements.ticketQty.style.borderColor = "green";
+    formElements.ticketQty.style.borderColor = "#4CAF50";
   }
 };
 
 const monthValidation = () => {
   if (Number(formElements.month.value) < 1 || Number(formElements.month.value) > 12){
     showError("Enter a valid DOB month");
-    formElements.month.style.borderColor = "red";
+    formElements.month.style.borderColor = "#F44336";
     return false;
   } else {
-    formElements.month.style.borderColor = "green";
+    formElements.month.style.borderColor = "#4CAF50";
   }
 };
 const dayValidation = () => {
   if (Number(formElements.day.value) < 1 || Number(formElements.day.value) > 31){
     showError("Enter a valid DOB day");
-    formElements.day.style.borderColor = "red";
+    formElements.day.style.borderColor = "#F44336";
     return false;
   } else {
-    formElements.day.style.borderColor = "green";
+    formElements.day.style.borderColor = "#4CAF50";
   }
 };
 const yearValidation = () => {
   if (Number(formElements.year.value) < 1880 || Number(formElements.year.value) > 2010){
     showError("Enter a valid DOB year");
-    formElements.year.style.borderColor = "red";
+    formElements.year.style.borderColor = "#F44336";
     return false;
   } else {
-    formElements.year.style.borderColor = "green";
+    formElements.year.style.borderColor = "#4CAF50";
   }
 };
 
@@ -182,15 +183,15 @@ const DOBValidation = () => {
 const zipValidation = () => {
   if (formElements.zip.value.length !== 5){
     showError("Enter a valid zip code");
-    formElements.zip.style.borderColor = "red";
+    formElements.zip.style.borderColor = "#F44336";
     return false;
   } else {
-    formElements.zip.style.borderColor = "green";
+    formElements.zip.style.borderColor = "#4CAF50";
   }
 };
 
 const countryValidation = () => {
-  formElements.country.style.borderColor = "green";
+  formElements.country.style.borderColor = "#4CAF50";
 };
 
 const loadProfile = () => {
