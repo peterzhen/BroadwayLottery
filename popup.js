@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $('select').material_select();
+    Materialize.showStaggeredList('#show-list');
 });
 
 const showList = [
