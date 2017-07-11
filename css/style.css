@@ -4,7 +4,6 @@ html, body {
 }
 
 body {
-  overflow: hidden;
   background-color: #fcfcfc;
 }
 
@@ -14,7 +13,7 @@ body {
 
 #popup-container {
   width: 440px;
-  overflow: hidden;
+  overflow: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -73,6 +72,15 @@ body {
   color: lightgrey;
 }
 
+/*#show-list {
+opacity: 0;
+}*/
+
+.restrict-height {
+  min-height: 62px !important;
+}
+
+
 .show-row {
   display: flex;
   flex-wrap: nowrap;
@@ -84,9 +92,12 @@ body {
 }
 
 .show-name {
-  font-size: 20px;
-  margin-bottom: 0;
   font-family: 'Lobster', cursive;
+}
+
+.collections-content {
+  color: grey;
+  width: 290px;
 }
 
 /* Profile Page */
