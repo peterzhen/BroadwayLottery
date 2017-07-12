@@ -12,13 +12,13 @@ body {
 }
 
 #popup-container {
+  padding-bottom: 10px;
   width: 440px;
   overflow: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
 }
-
 
 /* Shows Page */
 #shows-container {
@@ -36,11 +36,20 @@ body {
   position: relative;
 }
 
-.title-label {
+#title-label {
 	font-weight: bold;
-	text-align: center;
   font-family: 'Lobster', cursive;
-  font-size: 25px;
+  position: relative;
+}
+
+#info-button {
+  position: absolute;
+  margin-left: 5px;
+}
+
+#info-button:hover {
+  color: grey;
+  cursor: default;
 }
 
 .edit-profile-label {
@@ -50,8 +59,8 @@ body {
 
 #edit-profile {
   position: absolute;
-  right: 12px;
-  top: 9px;
+  right: 20px;
+  top: 25px;
   padding-right: 5px;
   font-size: 12px;
 	font-weight: bold;

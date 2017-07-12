@@ -234,6 +234,7 @@ backButton.onclick = () => {
     formElements[key].value = "";
   }
   $('label').removeClass('active');
+  Materialize.showStaggeredList('#show-list');
 };
 
 editProfileButton.onclick = () => {

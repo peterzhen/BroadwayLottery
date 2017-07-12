@@ -14,12 +14,24 @@
   <body>
   <div id="popup-container">
     <div class="container" id="shows-container">
-      <div class="heading-container">
+      <!-- <div class="heading-container">
         <h5 class="title-label">Broadway Lottery</h5>
         <div id="edit-profile">Edit Profile<i id="edit-button" class="tiny material-icons">mode_edit</i></div>
-      </div>
+      </div> -->
 
-      <ul id="show-list" class="collection z-depth-1">
+      <ul id="show-list" class="collection with-header">
+        <li class="collection-header">
+          <h5 id="title-label">Broadway Lottery
+            <i
+              id="info-button"
+              class="small material-icons tooltipped"
+              data-position="bottom" data-delay="50"
+              data-tooltip="NOTE: For first time users, click 'Edit Profile' to set up a profile.  To begin, simply check the Broadway Shows you wish to enter the lottery for and hit the 'Open Selected' button.  The selected shows will open in new tabs.  If there is a lottery to enter for that specific show, then the form will be autofilled.  To submit the lottery, visit each tab with an available drawing and submit the form.  Make sure you complete the captcha before submitting.  Good luck!">
+              info_outline
+            </i>
+          </h5>
+          <div id="edit-profile">Edit Profile<i id="edit-button" class="tiny material-icons">mode_edit</i></div>
+        </li>
         <li class="collection-item avatar restrict-height">
           <img src="assets/aladdin.jpg" alt="" class="circle">
           <span class="title show-name">Aladdin</span>
@@ -95,6 +107,7 @@
       <div class="row center-align">
         <a id="open-selected-button" class="waves-effect waves-light btn"><i class="material-icons right">open_in_new</i>Open Selected</a>
       </div>
+      <br>
     </div>
 
     <div class="container" id="profile-container">
