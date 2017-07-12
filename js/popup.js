@@ -14,10 +14,6 @@ const showList = [
   "https://lottery.broadwaydirect.com/show/wicked/"
 ];
 
-// shows page buttons
-const editProfileButton = document.getElementById("edit-profile");
-const openSelectedButton = document.getElementById("open-selected-button");
-
 // form dom
 const formElements = {
   "firstName" : document.getElementById("fNameInput"),
@@ -30,10 +26,6 @@ const formElements = {
   "zip" : document.getElementById("zipInput"),
   "country" : document.getElementById("countryInput")
 };
-
-// form buttons
-const backButton = document.getElementById("back-button");
-const saveButton = document.getElementById("save-button");
 
 // form errors
 const notification = document.getElementById("notification");
@@ -106,16 +98,16 @@ const saveProfile = () => {
   return profile;
 };
 
-saveButton.onclick = () => {
+$("#save-button").on("click", () => {
   clearError();
   if (formValidation()){
     chrome.storage.sync.set({ "profile" : saveProfile() }, () => {
       notify("Saved");
     });
   }
-};
+});
 
-backButton.onclick = () => {
+$("#back-button").on("click", () => {
   document.getElementById("profile-container").style.visibility = "hidden";
   document.getElementById("shows-container").style.marginLeft = "0px";
   clearError();
@@ -125,16 +117,16 @@ backButton.onclick = () => {
   }
   $('label').removeClass('active');
   Materialize.showStaggeredList('#show-list');
-};
+});
 
-editProfileButton.onclick = () => {
+$('#edit-profile').on('click', () => {
   loadProfile();
   document.getElementById("profile-container").style.visibility = "visible";
   document.getElementById("shows-container").style.marginLeft = "-440px";
   $('label').addClass('active');
-};
+});
 
-openSelectedButton.onclick = () => {
+$("#open-selected-button").on('click', () => {
   const selectedShows = [];
   const checkBoxes = document.getElementsByClassName("show-checkbox");
   for (let i = 0; i < checkBoxes.length; i++){
@@ -149,4 +141,4 @@ openSelectedButton.onclick = () => {
       // TODO Close tabs without valid lottery entry
     });
   });
-};
+});
