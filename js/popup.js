@@ -28,13 +28,13 @@ const formElements = {
 };
 
 // form errors
-const notification = document.getElementById("notification");
+const notification = $("#notification");
 
 const notify = message => {
-  notification.innerHTML = message;
-  notification.style.opacity = "1";
+  notification.html(message);
+  notification.css("opacity", "1");
   setTimeout( () => {
-      notification.style.opacity = "0";
+    notification.css("opacity", "0");
   }, 1000);
 };
 
