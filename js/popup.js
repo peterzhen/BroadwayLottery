@@ -16,15 +16,15 @@ const showList = [
 
 // form dom
 const formElements = {
-  "firstName" : document.getElementById("fNameInput"),
-  "lastName" : document.getElementById("lNameInput"),
-  "ticketQty" : document.getElementById("ticketQuantityInput"),
-  "email" : document.getElementById("emailInput"),
-  "month" : document.getElementById("monthInput"),
-  "day" : document.getElementById("dayInput"),
-  "year" : document.getElementById("yearInput"),
-  "zip" : document.getElementById("zipInput"),
-  "country" : document.getElementById("countryInput")
+  "firstName" : $("#fNameInput"),
+  "lastName" : $("#lNameInput"),
+  "ticketQty" : $("#ticketQuantityInput"),
+  "email" : $("#emailInput"),
+  "month" : $("#monthInput"),
+  "day" : $("#dayInput"),
+  "year" : $("#yearInput"),
+  "zip" : $("#zipInput"),
+  "country" : $("#countryInput")
 };
 
 // notifications
@@ -65,15 +65,15 @@ const formValidation = () => {
 const loadProfile = () => {
   chrome.storage.sync.get("profile", storage => {
     if (storage.profile){
-      formElements.firstName.value = storage.profile.fname;
-      formElements.lastName.value = storage.profile.lname;
-      formElements.ticketQty.selectedIndex = storage.profile.ticketQty;
-      formElements.email.value = storage.profile.email;
-      formElements.month.value = storage.profile.month;
-      formElements.day.value = storage.profile.day;
-      formElements.year.value = storage.profile.year;
-      formElements.zip.value = storage.profile.zip;
-      formElements.country.selectedIndex = storage.profile.country;
+      formElements.firstName.val(storage.profile.fname);
+      formElements.lastName.val(storage.profile.lname);
+      formElements.ticketQty.attr('selectedIndex', storage.profile.ticketQty);
+      formElements.email.val(storage.profile.email);
+      formElements.month.val(storage.profile.month);
+      formElements.day.val(storage.profile.day);
+      formElements.year.val(storage.profile.year);
+      formElements.zip.val(storage.profile.zip);
+      formElements.country.attr('selectedIndex', storage.profile.country);
 
       notify("Profile Loaded");
     }
@@ -82,14 +82,14 @@ const loadProfile = () => {
 
 const saveProfile = () => {
   const profile = {
-    "fname": formElements.firstName.value,
-    "lname": formElements.lastName.value,
+    "fname": formElements.firstName.val(),
+    "lname": formElements.lastName.val(),
     "ticketQty": formElements.ticketQty.selectedIndex,
-    "email": formElements.email.value,
-    "month": formElements.month.value,
-    "day": formElements.day.value,
-    "year": formElements.year.value,
-    "zip": formElements.zip.value,
+    "email": formElements.email.val(),
+    "month": formElements.month.val(),
+    "day": formElements.day.val(),
+    "year": formElements.year.val(),
+    "zip": formElements.zip.val(),
     "country": formElements.country.selectedIndex
   };
 
