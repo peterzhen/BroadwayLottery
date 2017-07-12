@@ -27,8 +27,10 @@ const formElements = {
   "country" : document.getElementById("countryInput")
 };
 
-// form errors
+// notifications
 const notification = $("#notification");
+// form errors
+const errors = $("#error-messages");
 
 const notify = message => {
   notification.html(message);
@@ -39,15 +41,11 @@ const notify = message => {
 };
 
 const showError = error => {
-  const errorMessage = document.getElementById("error-messages");
-  const newMessage = document.createElement("div");
-  newMessage.style.color = "#F44336";
-  newMessage.innerHTML = error;
-  errorMessage.appendChild(newMessage);
+  errors.append(`<div style="color: #F44336;">${error}</div>`);
 };
 
 const clearError = () => {
-  document.getElementById("error-messages").innerHTML = "";
+  errors.empty();
 };
 
 const formValidation = () => {
@@ -128,10 +126,10 @@ $('#edit-profile').on('click', () => {
 
 $("#open-selected-button").on('click', () => {
   const selectedShows = [];
-  const checkBoxes = document.getElementsByClassName("show-checkbox");
-  for (let i = 0; i < checkBoxes.length; i++){
-    if (checkBoxes[i].checked) selectedShows.push(Number(checkBoxes[i].value));
-  }
+
+  $(".show-checkbox").each( (i, checkbox) => {
+    if (checkbox.checked) selectedShows.push(Number(checkbox.value));
+  });
 
   selectedShows.forEach( i => {
     chrome.tabs.create({
