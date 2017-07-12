@@ -4,14 +4,14 @@
   "version": "1.0",
   "description": "An easy way to sign up for your Broadway Lotteries.",
   "browser_action": {
-    "default_icon": "bl_icon.png",
+    "default_icon": "assets/bl_icon.png",
     "default_title": "Broadway Lotteries",
     "default_popup": "popup.html"
   },
   "content_scripts": [
     {
       "matches": ["*://lottery.broadwaydirect.com/*"],
-      "js": ["broadway.js"],
+      "js": ["js/broadway.js"],
       "all_frames": true
     }
   ],
