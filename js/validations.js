@@ -1,107 +1,107 @@
 const firstNameValidation = () => {
-  if (formElements.firstName.value === ""){
+  if (formElements.firstName.val() === ""){
       showError('Please enter first name');
-      formElements.firstName.style.borderColor = "#F44336";
+      formElements.firstName.css("borderColor", "#F44336");
       return false;
   } else {
-      formElements.firstName.style.borderColor = "#4CAF50";
+      formElements.firstName.css("borderColor", "#4CAF50");
   }
-  if (!/^[a-zA-Z ]{2,30}$/.test(formElements.firstName.value)) {
+  if (!/^[a-zA-Z ]{2,30}$/.test(formElements.firstName.val())) {
       showError("Enter a valid first name");
-      formElements.firstName.style.borderColor = "#F44336";
+      formElements.firstName.css("borderColor", "#F44336");
       return false;
   } else {
-      formElements.firstName.style.borderColor = "#4CAF50";
+      formElements.firstName.css("borderColor", "#4CAF50");
   }
 };
 
 const lastNameValidation = () => {
-  if (formElements.lastName.value === ""){
+  if (formElements.lastName.val() === ""){
       showError('Please enter last name');
-      formElements.lastName.style.borderColor = "#F44336";
+      formElements.lastName.css("borderColor", "#F44336");
       return false;
   } else {
-      formElements.lastName.style.borderColor = "#4CAF50";
+      formElements.lastName.css("borderColor", "#4CAF50");
   }
-  if (!/^[a-zA-Z ]{2,30}$/.test(formElements.lastName.value)) {
+  if (!/^[a-zA-Z ]{2,30}$/.test(formElements.lastName.val())) {
       showError("Enter a valid last name");
-      formElements.lastName.style.borderColor = "#F44336";
+      formElements.lastName.css("borderColor", "#F44336");
       return false;
   } else {
-      formElements.lastName.style.borderColor = "#4CAF50";
+      formElements.lastName.css("borderColor", "#4CAF50");
   }
 };
 
 const emailValidation = () => {
-  if (formElements.email.value === ""){
+  if (formElements.email.val() === ""){
     showError("Please enter email");
-    formElements.email.style.borderColor = "#F44336";
-    formElements.email.style.boxShadow = "0 1px 0 0 #F44336";
+    formElements.email.css("borderColor", "#F44336");
+    formElements.email.css("boxShadow", "0 1px 0 0 #F44336");
     return false;
   } else {
-    formElements.email.style.borderColor = "#4CAF50";
+    formElements.email.css("borderColor", "#4CAF50");
   }
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  if (!re.test(formElements.email.value)){
+  if (!re.test(formElements.email.val())){
     showError("Enter valid email address");
     formElements.email.validity.patternMismatch = true;
-    formElements.email.style.borderColor = "#F44336";
+    formElements.email.css("borderColor", "#F44336");
     return false;
   } else {
-    formElements.email.style.borderColor = "#4CAF50";
+    formElements.email.css("borderColor", "#4CAF50");
   }
 };
 
 const ticketValidation = () => {
   if (formElements.ticketQty.selectedIndex < 1){
     showError('Please choose ticket amount');
-    formElements.ticketQty.style.borderColor = "#F44336";
+    formElements.ticketQty.css("borderColor", "#F44336");
     return false;
   } else {
-    formElements.ticketQty.style.borderColor = "#4CAF50";
+    formElements.ticketQty.css("borderColor", "#4CAF50");
   }
 };
 
 const monthValidation = () => {
-  if (isNaN(formElements.month.value) || !inRange(Number(formElements.month.value), 1, 12)){
+  if (isNaN(formElements.month.val()) || !inRange(Number(formElements.month.val()), 1, 12)){
     showError("Enter a valid DOB month");
-    formElements.month.style.borderColor = "#F44336";
+    formElements.month.css("borderColor", "#F44336");
     return false;
   } else {
-    formElements.month.style.borderColor = "#4CAF50";
+    formElements.month.css("borderColor", "#4CAF50");
   }
 };
 const dayValidation = () => {
-  if (isNaN(formElements.day.value) || !inRange(Number(formElements.day.value), 1, 31)){
+  if (isNaN(formElements.day.val()) || !inRange(Number(formElements.day.val()), 1, 31)){
     showError("Enter a valid DOB day");
-    formElements.day.style.borderColor = "#F44336";
+    formElements.day.css("borderColor", "#F44336");
     return false;
   } else {
-    formElements.day.style.borderColor = "#4CAF50";
+    formElements.day.css("borderColor", "#4CAF50");
   }
 };
 const yearValidation = () => {
-  if (isNaN(formElements.year.value) || !inRange(Number(formElements.year.value), 1850, 2010)){
+  if (isNaN(formElements.year.val()) || !inRange(Number(formElements.year.val()), 1850, 2010)){
     showError("Enter a valid DOB year");
-    formElements.year.style.borderColor = "#F44336";
+    formElements.year.css("borderColor", "#F44336");
     return false;
   } else {
-    formElements.year.style.borderColor = "#4CAF50";
+    formElements.year.css("borderColor", "#4CAF50");
   }
 };
 
 const zipValidation = () => {
-  if (formElements.zip.value.length !== 5){
+  if (formElements.zip.val().length !== 5){
     showError("Enter a valid zip code");
-    formElements.zip.style.borderColor = "#F44336";
+    formElements.zip.css("borderColor", "#F44336");
     return false;
   } else {
-    formElements.zip.style.borderColor = "#4CAF50";
+    formElements.zip.css("borderColor", "#4CAF50");
   }
 };
 
 const countryValidation = () => {
-  formElements.country.style.borderColor = "#4CAF50";
+  formElements.country.css("borderColor", "#4CAF50");
 };
 
 const inRange = (number, low, high) => {

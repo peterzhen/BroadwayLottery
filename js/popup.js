@@ -106,12 +106,12 @@ $("#save-button").on("click", () => {
 });
 
 $("#back-button").on("click", () => {
-  document.getElementById("profile-container").style.visibility = "hidden";
-  document.getElementById("shows-container").style.marginLeft = "0px";
+  $("#profile-container").css("visibility", "hidden");
+  $("#shows-container").css("marginLeft", "0px");
   clearError();
   for (let key in formElements) {
-    formElements[key].style.borderColor = "";
-    formElements[key].value = "";
+    formElements[key].css("borderColor", "");
+    formElements[key].val("");
   }
   $('label').removeClass('active');
   Materialize.showStaggeredList('#show-list');
@@ -119,8 +119,8 @@ $("#back-button").on("click", () => {
 
 $('#edit-profile').on('click', () => {
   loadProfile();
-  document.getElementById("profile-container").style.visibility = "visible";
-  document.getElementById("shows-container").style.marginLeft = "-440px";
+  $("#profile-container").css("visibility", "visible");
+  $("#shows-container").css("marginLeft", "-440px");
   $('label').addClass('active');
 });
 
