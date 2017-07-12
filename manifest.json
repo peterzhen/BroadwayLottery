@@ -16,7 +16,6 @@
     }
   ],
   "permissions": [
-    "debugger",
     "activeTab",
     "tabs" ,
     "*://lottery.broadwaydirect.com/*",
