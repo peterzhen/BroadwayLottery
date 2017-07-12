@@ -1,9 +1,7 @@
 const clickOpenShow = () => {
   try {
     const openButtons = document.getElementsByClassName("enter-button");
-    for (let i = 0; i < openButtons.length; i++){
-      openButtons[i].click();
-    }
+    if (openButtons.length > 0) openButtons[0].click();
   } catch(e) {
     console.log("Enter button not available", e);
   }
