@@ -36,7 +36,6 @@ const emailValidation = () => {
   if (formElements.email.val() === ""){
     showError("Please enter email");
     formElements.email.css("borderColor", "#F44336");
-    formElements.email.css("boxShadow", "0 1px 0 0 #F44336");
     return false;
   } else {
     formElements.email.css("borderColor", "#4CAF50");

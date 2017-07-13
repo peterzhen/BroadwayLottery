@@ -96,6 +96,14 @@ const saveProfile = () => {
   return profile;
 };
 
+const clearForm = () => {
+  for (let key in formElements) {
+    formElements[key].css("borderColor", "");
+    formElements[key].css("box-shadow", "");
+    formElements[key].val("");
+  }
+};
+
 $("#save-button").on("click", () => {
   clearError();
   if (formValidation()){
@@ -109,10 +117,7 @@ $("#back-button").on("click", () => {
   $("#profile-container").css("visibility", "hidden");
   $("#shows-container").css("marginLeft", "0px");
   clearError();
-  for (let key in formElements) {
-    formElements[key].css("borderColor", "");
-    formElements[key].val("");
-  }
+  clearForm();
   $('label').removeClass('active');
   Materialize.showStaggeredList('#show-list');
 });
@@ -122,6 +127,13 @@ $('#edit-profile').on('click', () => {
   $("#profile-container").css("visibility", "visible");
   $("#shows-container").css("marginLeft", "-440px");
   $('label').addClass('active');
+});
+
+$('#clear-button').on('click', () => {
+  clearError();
+  notify("Profile Cleared");
+  chrome.storage.sync.clear();
+  clearForm();
 });
 
 $("#open-selected-button").on('click', () => {
