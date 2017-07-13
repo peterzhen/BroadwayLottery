@@ -67,13 +67,13 @@ const loadProfile = () => {
     if (storage.profile){
       formElements.firstName.val(storage.profile.fname);
       formElements.lastName.val(storage.profile.lname);
-      formElements.ticketQty.attr('selectedIndex', storage.profile.ticketQty);
+      formElements.ticketQty.prop('selectedIndex', storage.profile.ticketQty);
       formElements.email.val(storage.profile.email);
       formElements.month.val(storage.profile.month);
       formElements.day.val(storage.profile.day);
       formElements.year.val(storage.profile.year);
       formElements.zip.val(storage.profile.zip);
-      formElements.country.attr('selectedIndex', storage.profile.country);
+      formElements.country.prop('selectedIndex', storage.profile.country);
 
       notify("Profile Loaded");
     }
@@ -84,13 +84,13 @@ const saveProfile = () => {
   const profile = {
     "fname": formElements.firstName.val(),
     "lname": formElements.lastName.val(),
-    "ticketQty": formElements.ticketQty.selectedIndex,
+    "ticketQty": formElements.ticketQty.prop("selectedIndex"),
     "email": formElements.email.val(),
     "month": formElements.month.val(),
     "day": formElements.day.val(),
     "year": formElements.year.val(),
     "zip": formElements.zip.val(),
-    "country": formElements.country.selectedIndex
+    "country": formElements.country.prop("selectedIndex")
   };
 
   return profile;
