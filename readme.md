@@ -1,5 +1,7 @@
 # Broadway Lottery
 
+[Link][https://chrome.google.com/webstore/detail/broadway-lottery/nilchoahomhfoiponkeakmholplfagoo]
+
 Broadway Lottery is a small chrome extension that helps speeds up the tedious process of signing up for your favorite New York City Broadway Show lotteries.  
 
 ## Libraries
