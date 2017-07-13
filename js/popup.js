@@ -81,6 +81,12 @@ const loadProfile = () => {
 };
 
 const saveProfile = () => {
+  if (formElements.ticketQty[0].selectedIndex === -1){
+    formElements.ticketQty[0].selectedIndex = 2;
+  }
+  if (formElements.country[0].selectedIndex === -1){
+    formElements.country[0].selectedIndex = 2;
+  }
   const profile = {
     "fname": formElements.firstName.val(),
     "lname": formElements.lastName.val(),
