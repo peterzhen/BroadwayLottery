@@ -9,9 +9,8 @@ Broadway Lottery is a small chrome extension that helps speeds up the tedious pr
 Broadway Lottery uses these libraries and frameworks:
 * `JQuery 3.2.1`
 * `Materialize`
-* `chrome.storage`
 
-In this chrome extension, I leveraged `Materialize` and `JQuery` to style and provide smooth, responsive user interface.  `JQuery` and  `chrome.storage` are used to manipulate the DOM for persistent storage for later sessions.
+In this chrome extension, I leveraged `Materialize` and `JQuery` to style and a provide smooth, responsive user interface.  `JQuery` and  `chrome.storage` are used to manipulate the DOM for persistent storage for later sessions.
 
 ## How It Works
 
