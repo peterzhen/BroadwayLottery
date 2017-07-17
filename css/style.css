@@ -110,10 +110,19 @@ body {
   justify-content: flex-start;
 }
 
+#back-button {
+  left: 9px;
+  top: 20px;
+}
+
 #add-profile-button {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 15px;
+  top: 12px;
+}
+
+.align-text-center {
+  text-align: center;
 }
 
 /* Profile Page */
