@@ -110,7 +110,11 @@ body {
   justify-content: flex-start;
 }
 
-#back-button {
+#profile-list > li {
+  opacity: 0;
+}
+
+#pflist-back-button {
   left: 9px;
   top: 20px;
 }
@@ -127,7 +131,6 @@ body {
 
 /* Profile Page */
 #profile-container {
-  visibility: hidden;
   padding: 10px 20px 10px 20px;
   width: 440px;
   min-width: 440px;

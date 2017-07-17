@@ -1,6 +1,7 @@
 $(document).ready(function() {
     $('select').material_select();
     Materialize.showStaggeredList('#show-list');
+    Materialize.showStaggeredList('#profile-list');
 });
 
 const showList = [
@@ -14,7 +15,8 @@ const showList = [
   "https://lottery.broadwaydirect.com/show/wicked/"
 ];
 
-// form dom
+const profiles = { "profiles" : [] };
+
 const formElements = {
   "firstName" : $("#fNameInput"),
   "lastName" : $("#lNameInput"),
@@ -119,18 +121,22 @@ $("#save-button").on("click", () => {
   }
 });
 
-$("#back-button").on("click", () => {
-  $("#profile-container").css("visibility", "hidden");
+$("#pflist-back-button").on("click", () => {
   $("#shows-container").css("marginLeft", "0px");
-  clearError();
-  clearForm();
   $('label').removeClass('active');
   Materialize.showStaggeredList('#show-list');
 });
 
+$("#pfedit-back-button").on("click", () => {
+  $("#shows-container").css("marginLeft", "-440px");
+  clearError();
+  clearForm();
+  $('label').removeClass('active');
+  Materialize.showStaggeredList('#profile-list');
+});
+
 $('#edit-profile').on('click', () => {
   loadProfile();
-  $("#profile-container").css("visibility", "visible");
   $("#shows-container").css("marginLeft", "-440px");
   $('label').addClass('active');
 });
@@ -141,9 +147,8 @@ $("#add-profile-button").on('click', () => {
 
 $('#cancel-button').on('click', () => {
   clearError();
-  $("#shows-container").css("marginLeft", "-440px");
-  // notify("Profile Cleared");
-  // chrome.storage.sync.clear();
+  notify("Profile Cleared");
+  chrome.storage.sync.clear();
   clearForm();
 });
 
