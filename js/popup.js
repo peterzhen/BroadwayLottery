@@ -64,6 +64,22 @@ const formValidation = () => {
     return !results.has(false);
 };
 
+const loadProfiles = () => {
+  chrome.storage.sync.get("profiles", storage => {
+    if (storage.profiles) profiles.profiles = storage.profiles;
+  });
+  profiles.profiles.forEach( (profile, index) => {
+    $("#profile-list").append(createProfile(profile, index));
+  });
+};
+
+const createProfile = (profile, index) => {
+  const $profileList = $('<li class="collection-item"></li>');
+  const userName = `${profile.fname} ${profile.lname}`;
+  $profileList.append(`<div>${userName}<a href="#!" class="secondary-content"><i class="material-icons">edit</i></a></div>`);
+  return $profileList;
+};
+
 const loadProfile = () => {
   chrome.storage.sync.get("profile", storage => {
     if (storage.profile){
@@ -115,7 +131,8 @@ const clearForm = () => {
 $("#save-button").on("click", () => {
   clearError();
   if (formValidation()){
-    chrome.storage.sync.set({ "profile" : saveProfile() }, () => {
+    profiles.profiles.push(saveProfile());
+    chrome.storage.sync.set({ "profiles" : profiles.profiles }, () => {
       notify("Saved");
     });
   }
@@ -135,17 +152,26 @@ $("#pfedit-back-button").on("click", () => {
   Materialize.showStaggeredList('#profile-list');
 });
 
-$('#edit-profile').on('click', () => {
+$('#edit-profiles').on('click', () => {
+  // $('#profile-list').not('li:first').remove();
+  loadProfiles();
   loadProfile();
   $("#shows-container").css("marginLeft", "-440px");
+  Materialize.showStaggeredList('#profile-list');
   $('label').addClass('active');
 });
+
+// $('#edit-profile').on('click', () => {
+//   loadProfile();
+//   $("#shows-container").css("marginLeft", "-440px");
+//   $('label').addClass('active');
+// });
 
 $("#add-profile-button").on('click', () => {
   $("#shows-container").css("marginLeft", "-880px");
 });
 
-$('#cancel-button').on('click', () => {
+$('#delete-button').on('click', () => {
   clearError();
   notify("Profile Cleared");
   chrome.storage.sync.clear();

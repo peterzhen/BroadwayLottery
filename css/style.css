@@ -57,7 +57,7 @@ body {
 	text-align: center;
 }
 
-#edit-profile {
+#edit-profiles {
   position: absolute;
   right: 20px;
   top: 25px;
@@ -74,11 +74,11 @@ body {
   right: -12px;
 }
 
-#edit-profile:hover {
+#edit-profiles:hover {
   cursor: pointer;
 }
 
-#edit-profile:hover #edit-button {
+#edit-profiles:hover #edit-button {
   color: lightgrey;
 }
 
