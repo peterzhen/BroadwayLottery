@@ -99,6 +99,23 @@ body {
   width: 290px;
 }
 
+/* Profile List */
+
+#profile-list-container {
+  padding: 10px 20px 10px 20px;
+  width: 440px;
+  min-width: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#add-profile-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
 /* Profile Page */
 #profile-container {
   visibility: hidden;

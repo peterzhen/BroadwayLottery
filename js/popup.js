@@ -135,10 +135,15 @@ $('#edit-profile').on('click', () => {
   $('label').addClass('active');
 });
 
-$('#clear-button').on('click', () => {
+$("#add-profile-button").on('click', () => {
+  $("#shows-container").css("marginLeft", "-880px");
+});
+
+$('#cancel-button').on('click', () => {
   clearError();
-  notify("Profile Cleared");
-  chrome.storage.sync.clear();
+  $("#shows-container").css("marginLeft", "-440px");
+  // notify("Profile Cleared");
+  // chrome.storage.sync.clear();
   clearForm();
 });
 
