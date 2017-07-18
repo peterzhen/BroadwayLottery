@@ -68,34 +68,46 @@ const loadProfiles = () => {
   chrome.storage.sync.get("profiles", storage => {
     if (storage.profiles) profiles.profiles = storage.profiles;
   });
+
   profiles.profiles.forEach( (profile, index) => {
     $("#profile-list").append(createProfile(profile, index));
+    $(`#edit-button-${index}`).on("click", () => {
+      editProfile(index);
+    });
   });
+};
+
+const editProfile = index => {
+  $("#shows-container").css("marginLeft", "-880px");
+  loadProfile(index);
+  $('label').addClass('active');
 };
 
 const createProfile = (profile, index) => {
-  const $profileList = $('<li class="collection-item"></li>');
   const userName = `${profile.fname} ${profile.lname}`;
-  $profileList.append(`<div>${userName}<a href="#!" class="secondary-content"><i class="material-icons">edit</i></a></div>`);
-  return $profileList;
+  const $profileContent = $(`<li class="collection-item">
+                              <div class="profile-name">
+                                <i class="material-icons profile-icon">account_circle</i>${userName}
+                                <a href="#!" id="edit-button-${index}" class="secondary-content">
+                                  <i class="material-icons">edit</i>
+                                </a>
+                              </div>
+                            </li>`);
+  return $profileContent;
 };
 
-const loadProfile = () => {
-  chrome.storage.sync.get("profile", storage => {
-    if (storage.profile){
-      formElements.firstName.val(storage.profile.fname);
-      formElements.lastName.val(storage.profile.lname);
-      formElements.ticketQty.prop('selectedIndex', storage.profile.ticketQty);
-      formElements.email.val(storage.profile.email);
-      formElements.month.val(storage.profile.month);
-      formElements.day.val(storage.profile.day);
-      formElements.year.val(storage.profile.year);
-      formElements.zip.val(storage.profile.zip);
-      formElements.country.prop('selectedIndex', storage.profile.country);
+const loadProfile = index => {
+  formElements.firstName.val(profiles.profiles[index].fname);
+  formElements.lastName.val(profiles.profiles[index].lname);
+  formElements.ticketQty.prop('selectedIndex', profiles.profiles[index].ticketQty);
+  formElements.email.val(profiles.profiles[index].email);
+  formElements.month.val(profiles.profiles[index].month);
+  formElements.day.val(profiles.profiles[index].day);
+  formElements.year.val(profiles.profiles[index].year);
+  formElements.zip.val(profiles.profiles[index].zip);
+  formElements.country.prop('selectedIndex', profiles.profiles[index].country);
 
-      notify("Profile Loaded");
-    }
-  });
+  notify("Profile Loaded");
 };
 
 const saveProfile = () => {
@@ -155,17 +167,9 @@ $("#pfedit-back-button").on("click", () => {
 $('#edit-profiles').on('click', () => {
   // $('#profile-list').not('li:first').remove();
   loadProfiles();
-  loadProfile();
   $("#shows-container").css("marginLeft", "-440px");
   Materialize.showStaggeredList('#profile-list');
-  $('label').addClass('active');
 });
-
-// $('#edit-profile').on('click', () => {
-//   loadProfile();
-//   $("#shows-container").css("marginLeft", "-440px");
-//   $('label').addClass('active');
-// });
 
 $("#add-profile-button").on('click', () => {
   $("#shows-container").css("marginLeft", "-880px");
