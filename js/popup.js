@@ -72,6 +72,8 @@ const loadProfiles = () => {
         $("#profile-list").append(createProfile(profile, index));
         $(`#edit-button-${index}`).on("click", () => {
           editProfile(index);
+          $("#save-button").on("click", () => saveProfile(index));
+          $('#delete-button').on('click', () => deleteProfile(index));
         });
       });
 
@@ -113,7 +115,23 @@ const loadProfile = index => {
   notify("Profile Loaded");
 };
 
-const saveProfile = () => {
+const saveProfile = index => {
+  clearError();
+  if (formValidation()){
+    if (index){
+      debugger
+      profiles.profile[index] = getProfile();
+    } else {
+      profiles.profiles.push(getProfile());
+    }
+    chrome.storage.sync.set({ "profiles" : profiles.profiles }, () => {
+      notify("Saved");
+    });
+  }
+  setTimeout(() => $("#pfedit-back-button").click(), 500);
+};
+
+const getProfile = () => {
   if (formElements.ticketQty[0].selectedIndex === -1){
     formElements.ticketQty[0].selectedIndex = 2;
   }
@@ -143,15 +161,18 @@ const clearForm = () => {
   }
 };
 
-$("#save-button").on("click", () => {
+const deleteProfile = index => {
   clearError();
-  if (formValidation()){
-    profiles.profiles.push(saveProfile());
-    chrome.storage.sync.set({ "profiles" : profiles.profiles }, () => {
-      notify("Saved");
-    });
-  }
-});
+  notify("Profile Cleared");
+  clearForm();
+  debugger
+  profiles.profiles.splice(index, 1);
+  debugger
+  chrome.storage.sync.set({ "profiles" : profiles.profiles }, () => {
+    notify("Deleted");
+  });
+  setTimeout(() => $("#pfedit-back-button").click(), 500);
+};
 
 $("#pflist-back-button").on("click", () => {
   $("#shows-container").css("marginLeft", "0px");
@@ -175,15 +196,9 @@ $('#edit-profiles').on('click', () => {
 });
 
 $("#add-profile-button").on('click', () => {
+  $("#save-button").on("click", () => saveProfile());
   $("#shows-container").css("marginLeft", "-880px");
   $('label').addClass('active');
-});
-
-$('#delete-button').on('click', () => {
-  clearError();
-  notify("Profile Cleared");
-  chrome.storage.sync.clear();
-  clearForm();
 });
 
 $("#open-selected-button").on('click', () => {
