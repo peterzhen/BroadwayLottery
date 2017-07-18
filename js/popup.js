@@ -66,14 +66,17 @@ const formValidation = () => {
 
 const loadProfiles = () => {
   chrome.storage.sync.get("profiles", storage => {
-    if (storage.profiles) profiles.profiles = storage.profiles;
-  });
+    if (storage.profiles){
+      profiles.profiles = storage.profiles;
+      profiles.profiles.forEach( (profile, index) => {
+        $("#profile-list").append(createProfile(profile, index));
+        $(`#edit-button-${index}`).on("click", () => {
+          editProfile(index);
+        });
+      });
 
-  profiles.profiles.forEach( (profile, index) => {
-    $("#profile-list").append(createProfile(profile, index));
-    $(`#edit-button-${index}`).on("click", () => {
-      editProfile(index);
-    });
+      Materialize.showStaggeredList('#profile-list');
+    }
   });
 };
 
@@ -157,22 +160,23 @@ $("#pflist-back-button").on("click", () => {
 });
 
 $("#pfedit-back-button").on("click", () => {
-  $("#shows-container").css("marginLeft", "-440px");
+  $('#profile-list li:not(:first)').remove();
+  loadProfiles();
   clearError();
   clearForm();
+  $("#shows-container").css("marginLeft", "-440px");
   $('label').removeClass('active');
-  Materialize.showStaggeredList('#profile-list');
 });
 
 $('#edit-profiles').on('click', () => {
-  // $('#profile-list').not('li:first').remove();
+  $('#profile-list li:not(:first)').remove();
   loadProfiles();
   $("#shows-container").css("marginLeft", "-440px");
-  Materialize.showStaggeredList('#profile-list');
 });
 
 $("#add-profile-button").on('click', () => {
   $("#shows-container").css("marginLeft", "-880px");
+  $('label').addClass('active');
 });
 
 $('#delete-button').on('click', () => {
