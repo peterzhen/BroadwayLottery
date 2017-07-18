@@ -209,7 +209,7 @@ $("#open-selected-button").on('click', () => {
       url: showList[i],
       active: false
     }, tab => {
-      // TODO Close tabs without valid lottery entry
+
     });
   });
 });
