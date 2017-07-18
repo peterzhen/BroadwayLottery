@@ -72,8 +72,6 @@ const loadProfiles = () => {
         $("#profile-list").append(createProfile(profile, index));
         $(`#edit-button-${index}`).on("click", () => {
           editProfile(index);
-          $("#save-button").on("click", () => saveProfile(index));
-          $('#delete-button').on('click', () => deleteProfile(index));
         });
       });
 
@@ -85,6 +83,8 @@ const loadProfiles = () => {
 const editProfile = index => {
   $("#shows-container").css("marginLeft", "-880px");
   loadProfile(index);
+  $("#save-button").on("click", () => saveProfile(index));
+  $('#delete-button').on('click', () => deleteProfile(index));
   $('label').addClass('active');
 };
 
@@ -119,16 +119,15 @@ const saveProfile = index => {
   clearError();
   if (formValidation()){
     if (index){
-      debugger
       profiles.profile[index] = getProfile();
     } else {
       profiles.profiles.push(getProfile());
     }
     chrome.storage.sync.set({ "profiles" : profiles.profiles }, () => {
       notify("Saved");
+      setTimeout(() => $("#pfedit-back-button").click(), 500);
     });
   }
-  setTimeout(() => $("#pfedit-back-button").click(), 500);
 };
 
 const getProfile = () => {
@@ -165,18 +164,15 @@ const deleteProfile = index => {
   clearError();
   notify("Profile Cleared");
   clearForm();
-  debugger
   profiles.profiles.splice(index, 1);
-  debugger
   chrome.storage.sync.set({ "profiles" : profiles.profiles }, () => {
     notify("Deleted");
+    setTimeout(() => $("#pfedit-back-button").click(), 500);
   });
-  setTimeout(() => $("#pfedit-back-button").click(), 500);
 };
 
 $("#pflist-back-button").on("click", () => {
   $("#shows-container").css("marginLeft", "0px");
-  $('label').removeClass('active');
   Materialize.showStaggeredList('#show-list');
 });
 
